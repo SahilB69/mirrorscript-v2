@@ -77,7 +77,7 @@ class ping_thread(threading.Thread):
 				if "100% packet loss" in p[0].strip():
 					average = "[!] Unable to check " + self.hostname + " latency, potentially host block ICMP request."
 				else:
-					average = p[0].strip().splitlines()[7].split('=')[1].split('/')[1]
+					average = p[0].strip().splitlines()[-1].split('=')[1].split('/')[1]
 					mirrors[self.hostname] = str(str(average).zfill(7))
 			except Exception as e:
 				if not ask("\t[!] Something went wrong. would you like to try again [y] or [n].",'y'):
