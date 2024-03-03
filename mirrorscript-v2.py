@@ -154,7 +154,7 @@ if __name__ == "__main__":
 			sys.exit(1)
 
 	print("[+] Getting mirror list ...")
-	response = requests.get('https://http.kali.org/README.mirrorlist', headers=headers).text
+	response = requests.get('https://http.kali.org/README?mirrorlist', headers=headers).text
 	urls = re.findall(r'(?:href="http(?:s|))(.*)(?:/README")',response)[2:]
 	
 	if verbose:
